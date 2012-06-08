@@ -1,0 +1,10 @@
+.span3.trip_entry[trip.trip]
+  .trip_header= link_to trip.name, trip.trip
+  .trip_tag= trip.tag_line
+  .trip_dates= trip.date_span
+  .trip_image= image_tag(trip.image_name, :height => 150, :width => 150)
+  .trip_price= trip.price_display
+  .trip_links
+    = link_to "Show Details", trip, :class => 'detail_toggle'
+    .detail_hidden
+      %div= trip.description

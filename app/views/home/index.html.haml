@@ -1,0 +1,5 @@
+%h1.trip_index_header#headline Time Travel Adventures
+
+- @trips.each_slice(3) do |group|
+  .row
+    = render :partial => "trip_capsule", :collection => group, :as => :trip
