@@ -1,0 +1,40 @@
+= form_for @trip do |f|
+  -if @trip.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@trip.errors.count, "error")} prohibited this trip from being saved:"
+      %ul
+        - @trip.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :description
+    = f.text_area :description
+  .field
+    = f.label :start_date
+    = f.date_select :start_date
+  .field
+    = f.label :end_date
+    = f.date_select :end_date
+  .field
+    = f.label :image_name
+    = f.text_field :image_name
+  .field
+    = f.label :slug
+    = f.text_field :slug
+  .field
+    = f.label :tag_line
+    = f.text_field :tag_line
+  .field
+    = f.label :price
+    = f.text_field :price
+  .field
+    = f.label :location
+    = f.text_field :location
+  .field
+    = f.label :activity
+    = f.text_field :activity
+  .actions
+    = f.submit 'Save'

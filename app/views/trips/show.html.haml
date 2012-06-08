@@ -1,0 +1,36 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @trip.name
+%p
+  %b Description:
+  = @trip.description
+%p
+  %b Start date:
+  = @trip.start_date
+%p
+  %b End date:
+  = @trip.end_date
+%p
+  %b Image name:
+  = @trip.image_name
+%p
+  %b Slug:
+  = @trip.slug
+%p
+  %b Tag line:
+  = @trip.tag_line
+%p
+  %b Price:
+  = @trip.price
+%p
+  %b Location:
+  = @trip.location
+%p
+  %b Activity:
+  = @trip.activity
+
+= link_to 'Edit', edit_trip_path(@trip)
+\|
+= link_to 'Back', trips_path
