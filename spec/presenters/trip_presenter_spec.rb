@@ -4,7 +4,6 @@ require 'scot_travel/services/date_range_service'
 require 'models/trip'
 require 'scot_travel/presenters/trip_presenter' 
 
-
 module Presenters
 
   describe TripPresenter do
