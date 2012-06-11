@@ -13,6 +13,7 @@ module Presenters
     end
 
     def date_span
+      return "" if trip.missing_dates?
       "#{trip.start_date.to_s(:long)} - #{trip.end_date.to_s(:long)}"
     end
 
