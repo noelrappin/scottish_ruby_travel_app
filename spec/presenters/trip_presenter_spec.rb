@@ -29,6 +29,11 @@ module Presenters
         presenter = TripPresenter.new(trip)
         presenter.date_span.should be_blank
       end
+
+      it "displays a price" do
+        presenter = TripPresenter.new(DumbTrip.new(:price => 100.5))
+        presenter.price_display.should == "$100.50"
+      end
     end
 
   end
