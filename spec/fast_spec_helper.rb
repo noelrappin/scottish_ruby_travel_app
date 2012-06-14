@@ -1,4 +1,5 @@
 $: << File.expand_path("app")
+require 'rspec/expectations'
 require 'pry'
 require 'awesome_print'
 require 'open_active_model'

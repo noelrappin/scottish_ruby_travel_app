@@ -4,7 +4,7 @@ class TripsController < ApplicationController
   # GET /trips.json
   def index
     @trips = Trip.all
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @trips }

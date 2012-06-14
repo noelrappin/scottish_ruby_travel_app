@@ -2,6 +2,8 @@ require 'fast_spec_helper'
 require_number_modules
 require 'scot_travel/presenters/trip_presenter' 
 require 'scot_travel/services/date_range_service'
+require 'scot_travel/roles/buyer'
+
 
 module Presenters
   
@@ -36,5 +38,29 @@ module Presenters
       end
     end
 
+    describe "With a presenter and a user" do
+      let(:user) { OpenStruct.new(:purchases => []) }
+      let(:trip) { DumbTrip.new(:id => 3) }
+      let(:presenter) { TripPresenter.new(trip, user) }
+
+      it "presents trips with a user" do
+        presenters = TripPresenter.present_trips([stub, stub], 
+            OpenStruct.new(:name => "user"))
+        presenters.first.buyer.name.should == "user"
+      end
+
+      it "can determine the trip state of the purchase" do
+        presenter.should have_buyer
+        presenter.should_not be_purchased   
+        user.purchases << OpenStruct.new(:purchasable => trip)
+        presenter.should be_purchased
+      end
+
+      it "determines the trip state of the purchase if there is no user" do
+        presenter = TripPresenter.new(trip) 
+        presenter.should_not have_buyer
+        presenter.should_not be_purchased
+      end
+    end
   end
 end

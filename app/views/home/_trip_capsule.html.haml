@@ -8,3 +8,8 @@
     = link_to "Show Details", trip, :class => 'detail_toggle'
     .detail_hidden
       %div= trip.description
+  .purchase_info
+    - if trip.purchased?
+      .purchased "You have Bought This"
+    -else
+      .unpurchased= link_to "Buy Now", trip.trip
