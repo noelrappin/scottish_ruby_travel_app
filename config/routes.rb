@@ -1,7 +1,7 @@
 ScotTravel::Application.routes.draw do
   root :to => "home#index"
   devise_for :users
-
+  resources :users
   resources :trips
 
   # The priority is based upon order of creation:

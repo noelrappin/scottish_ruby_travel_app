@@ -5,7 +5,7 @@ module Services
   class DummyDateRange < OpenStruct
     include DateRangeService
   end  
-
+  
   describe DateRangeService do
     it "knows when dates aren't missing" do
       DummyDateRange.new(:start_date => Time.now, :end_date => Time.now)

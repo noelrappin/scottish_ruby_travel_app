@@ -1,6 +1,7 @@
 $: << File.expand_path("app")
 require 'pry'
 require 'awesome_print'
+require 'open_active_model'
 
 def require_number_modules
   require 'active_support/core_ext/date/conversions'
