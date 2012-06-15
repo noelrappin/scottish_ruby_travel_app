@@ -62,5 +62,25 @@ module Presenters
         presenter.should_not be_purchased
       end
     end
+
+    describe "With hotel information" do
+      let(:trip) { DumbTrip.new(:hotels => [hotel]) }
+      let(:presenter) { TripPresenter.new(trip) }
+      let(:hotel) { OpenStruct.new(:name => "Hilton", :price => 100, :id => 1)}
+
+      it "should return a select list of hotels" do
+        presenter.hotel_options.should == [["Hilton:  ($100.00)", 1]]  
+      end
+    end
+
+    describe "With extra information" do
+      let(:trip) { DumbTrip.new(:extras => [extra]) }
+      let(:presenter) { TripPresenter.new(trip) }
+      let(:extra) { OpenStruct.new(:name => "Tour", :price => 100, :id => 1)}
+
+      it "should description" do
+        presenter.present_extras.should == [["Tour:  ($100.00)", 1]]  
+      end
+    end
   end
 end

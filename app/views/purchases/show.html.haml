@@ -1,0 +1,20 @@
+.hero-unit
+  %h1.trip_name= "Purchase of #{@purchase.purchasable.name}"
+  %p for #{@purchase.buyer_name}
+
+%h1 Order Manifest
+
+%h2 Lodging
+
+.hotel
+  .hotel_name= @purchase.hotel_name
+  .hotel_price= @purchase.hotel_price_display
+
+%h2 Extras
+
+.extras
+  - @purchase.extras_display.each do |extra|
+    %div= extra
+
+%h2 Total Cost
+.total_cost= @purchase.total_price_display

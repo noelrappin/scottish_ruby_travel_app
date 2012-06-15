@@ -11,5 +11,13 @@ module Roles
     def has_purchased?(purchasable)
       purchases.map(&:purchasable).include?(purchasable)
     end
+
+    def add_to_purchase(purchase, extra, unit_count, purchase_extra_class = PurchaseExtra)
+      purchase_extra = purchase_extra_class.new(
+          :purchase => purchase, :extra => extra, :unit_count => unit_count,
+          :unit_price => extra.price)
+      purchase.purchase_extras << purchase_extra
+      purchase_extra  
+    end
   end
 end

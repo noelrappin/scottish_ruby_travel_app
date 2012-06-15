@@ -1,5 +1,13 @@
 class OpenActiveModel < OpenStruct
 
+  def self.base_class
+    OpenStruct
+  end
+
+  def self.primary_key
+    :id
+  end
+
   def self.find(id)
     new(:id => id)
   end
@@ -20,6 +28,10 @@ class OpenActiveModel < OpenStruct
       @table[key.to_sym] = value
       new_ostruct_member(key)
     end
+  end
+
+  def [](index)
+    send(index)
   end
 
   # def method_missing(method_name)
@@ -58,6 +70,10 @@ class OpenActiveAssociation
 
   def <<(item)
     data << item
+  end
+
+  def [](index)
+    data[index]
   end
 
 end

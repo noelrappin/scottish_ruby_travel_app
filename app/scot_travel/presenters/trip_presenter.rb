@@ -30,5 +30,13 @@ module Presenters
       return false unless has_buyer?
       buyer.has_purchased?(trip)
     end
+
+    def hotel_options
+      trip.hotels.map { |h| ["#{h.name}: #{h.description} (#{number_to_currency(h.price)})", h.id] }
+    end
+
+    def present_extras
+      trip.extras.map { |h| ["#{h.name}: #{h.description} (#{number_to_currency(h.price)})", h.id] }
+    end
   end
 end
