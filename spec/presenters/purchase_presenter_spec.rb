@@ -11,12 +11,12 @@ module Presenters
         :buyer => user, :purchase_extras => [pe_hotel, pe_tour], 
         :total_price => 1500) }
     let(:user) { OpenActiveModel.new(:first_name => "Fred", :last_name => "Flintstone") }
+    let(:hotel) { OpenActiveModel.new(:name => "Hilton") }
+    let(:extra) { OpenActiveModel.new(:name => "Tour") }
     let(:pe_hotel) { OpenActiveModel.new(:extra => hotel, :extra_type => "Hotel",
         :unit_price => 400, :unit_count => 3, :extended_price => 1200)}
     let(:pe_tour) { OpenActiveModel.new(:extra => extra, :extra_type => "Tour",
         :unit_price => 300, :unit_count => 1, :extended_price => 300)}
-    let(:hotel) { OpenActiveModel.new(:name => "Hilton") }
-    let(:extra) { OpenActiveModel.new(:name => "Tour") }
     
     it "presents data" do
       presenter.buyer_name.should == "Fred Flintstone"  
