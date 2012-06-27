@@ -43,12 +43,12 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'jasmine'
-  gem 'jasminerice'
+  #gem 'jasmine'
+  #gem 'jasminerice'
   gem 'factory_girl_rails'
   gem 'pry'
   gem 'launchy'
-  
+
 end
 
 group :test do
